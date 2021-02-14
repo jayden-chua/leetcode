@@ -13,6 +13,9 @@ foreach($parts as $index => $name) {
     if ($index !== 0) {
         $name = ucfirst($name);
     }
+    if (is_numeric($name)) {
+        $name = str_pad($name, 4, '0');
+    }
     $problemName .= str_replace('.','', $name);
 }
 $problemName = "A$problemName";
