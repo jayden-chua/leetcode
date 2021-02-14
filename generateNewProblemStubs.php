@@ -8,7 +8,7 @@ if (!isset($argv[1])) {
 
 $problemName = $argv[1];
 $parts = explode(' ',$problemName);
-$problemName = '';
+$className = '';
 
 foreach($parts as $index => $name) {
     $name = strtolower($name);
@@ -18,22 +18,22 @@ foreach($parts as $index => $name) {
     if (is_numeric($name)) {
         $name = str_pad($name, 4, '0');
     }
-    $problemName .= str_replace('.','', $name);
+    $className .= str_replace('.','', $name);
 }
-$problemName = "A$problemName";
-if (empty($problemName)) {
+$className = "A$className";
+if (empty($className)) {
     echo 'Solution Name required, please follow the format A000Template';
     return;
 }
 
-$srcDir = "./src/$problemName";
-$testDir = "./tests/$problemName";
+$srcDir = "./src/$className";
+$testDir = "./tests/$className";
 
 mkdir($srcDir);
 mkdir($testDir);
 
 $problemMdTemplate = <<<EOT
-## 0000. Sample
+## $problemName
 
 Sample
 
@@ -63,7 +63,7 @@ EOT;
 $solutionPhpTemplate = <<<EOT
 <?php declare(strict_types=1);
 
-namespace App\\$problemName;
+namespace App\\$className;
 
 class Solution {
     
@@ -76,7 +76,7 @@ EOT;
 $solutionPhpTestTemplate = <<<EOT
 <?php declare(strict_types=1);
 
-namespace App\\$problemName;
+namespace App\\$className;
 use PHPUnit\Framework\TestCase;
 
 final class SolutionTest extends TestCase
@@ -99,13 +99,13 @@ EOT;
 ;
 
 $file = fopen("$srcDir/Problem.MD","w");
-echo fwrite($file,$problemMdTemplate);
+fwrite($file,$problemMdTemplate);
 fclose($file);
 
 $file = fopen("$srcDir/Solution.php","w");
-echo fwrite($file,$solutionPhpTemplate);
+fwrite($file,$solutionPhpTemplate);
 fclose($file);
 
 $file = fopen("$testDir/SolutionTest.php","w");
-echo fwrite($file,$solutionPhpTestTemplate);
+fwrite($file,$solutionPhpTestTemplate);
 fclose($file);
