@@ -1,13 +1,15 @@
 <?php declare(strict_types=1);
 
+
 if (!isset($argv[1])) {
     echo 'Solution Name required, please follow the format A000Template';
     return;
 }
 
 $problemName = $argv[1];
-$parts = explode($problemName,' ');
+$parts = explode(' ',$problemName);
 $problemName = '';
+
 foreach($parts as $index => $name) {
     $name = strtolower($name);
     if ($index !== 0) {
@@ -23,13 +25,14 @@ if (empty($problemName)) {
     echo 'Solution Name required, please follow the format A000Template';
     return;
 }
+
 $srcDir = "./src/$problemName";
 $testDir = "./tests/$problemName";
 
 mkdir($srcDir);
 mkdir($testDir);
 
-$problemMdTemplate = <<<'EOT'
+$problemMdTemplate = <<<EOT
 ## 0000. Sample
 
 Sample
