@@ -14,7 +14,7 @@ class Solution {
 				if ($i === $j) {
 					continue;
 				}
-				if ($m * 2 === $n) {
+				if ($i * 2 === $j) {
 					return true;
 				}
 			}
