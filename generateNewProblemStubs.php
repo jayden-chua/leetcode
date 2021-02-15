@@ -29,6 +29,11 @@ if (empty($className)) {
 $srcDir = "./src/$className";
 $testDir = "./tests/$className";
 
+if (is_dir($srcDir) || is_dir($testDir)) {
+    echo 'Solution exists, exiting...';
+    return;
+}
+
 mkdir($srcDir);
 mkdir($testDir);
 

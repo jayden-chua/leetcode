@@ -1,6 +1,6 @@
 <?php declare(strict_types=1);
 
-namespace App\A0080RemoveDuplicatesFromSortedArrayII;
+namespace App\A0080RemoveDuplicatesFromSortedArrayIi;
 use PHPUnit\Framework\TestCase;
 
 final class SolutionTest extends TestCase
