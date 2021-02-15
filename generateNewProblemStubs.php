@@ -91,8 +91,8 @@ final class SolutionTest extends TestCase
      * @dataProvider cases
      */ 
     public function testSample() {
-       \$s = new Solution();
-       \$this->assertEquals('', '');
+        \$s = new Solution();
+        \$this->assertEquals('', '');
     }
 }
 EOT;
