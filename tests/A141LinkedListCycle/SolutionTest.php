@@ -1,7 +1,7 @@
 <?php declare(strict_types=1);
 
 namespace App\A141LinkedListCycle;
-use App\Helper\ListNode;
+use Lib\Helper\ListNode;
 use PHPUnit\Framework\TestCase;
 
 final class SolutionTest extends TestCase
