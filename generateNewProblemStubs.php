@@ -22,7 +22,7 @@ foreach($parts as $index => $name) {
 }
 $className = "A$className";
 if (empty($className)) {
-    echo 'Solution Name required, please follow the format A000Template';
+    echo 'Solution name required, please follow the format A000Template';
     return;
 }
 
