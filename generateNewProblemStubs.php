@@ -12,11 +12,12 @@ $className = '';
 
 foreach($parts as $index => $name) {
     $name = strtolower($name);
+    $name = str_replace('.','', $name);
     if ($index !== 0) {
         $name = ucfirst($name);
     }
     if (is_numeric($name)) {
-        $name = str_pad($name, 4, '0');
+        $name = str_pad($name, 4, '0', STR_PAD_LEFT);
     }
     $className .= str_replace('.','', $name);
 }
