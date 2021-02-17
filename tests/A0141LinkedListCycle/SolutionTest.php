@@ -22,13 +22,18 @@ final class SolutionTest extends TestCase
      * @param $expectedAnswer\
      */
     public function testHasCycle($heads, $pos, $expectedAnswer) {
-        $head = $this->createLinkList($heads, $pos);
+        $head = $this->createList($heads, $pos);
 
         $s = new Solution();
         $this->assertEquals($expectedAnswer, $s->hasCycle($head));
     }
 
-    private function createLinkList($heads, $pos) {
+    /**
+     * @param $heads
+     * @param $pos
+     * @return ListNode|null
+     */
+    private function createList($heads, $pos) {
         $head = null;
         $node = null;
         $cacheNode = null;
