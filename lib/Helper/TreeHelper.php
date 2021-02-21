@@ -18,17 +18,18 @@ class TreeHelper
         $index = 0;
         $map[$index] = new TreeNode($vals[0]);
 
-        while (isset($vals[2**($depth+1)])) {
+        while (array_key_exists(2**($depth+1), $vals)) {
             $start = (2 ** ($depth+1)) - 1;
             $end = $start + (2 ** ($depth+1));
-
             for ($i = $start; $i < $end; $i = $i + 2) {
-                $leftNode = new TreeNode($vals[$i]);
-                $rightNode = new TreeNode($vals[$i+1]);
+                $leftNode = is_null($vals[$i]) ? null : new TreeNode($vals[$i]);
                 $index++;
                 $map[$index] = $leftNode;
+
+                $rightNode = is_null($vals[$i+1]) ? null : new TreeNode($vals[$i+1]);
                 $index++;
                 $map[$index] = $rightNode;
+
                 $map[$parent]->left = $leftNode;
                 $map[$parent]->right = $rightNode;
                 $parent++;

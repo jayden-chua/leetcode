@@ -24,4 +24,18 @@ final class TreeHelperTest extends TestCase
 
         $this->assertEquals($node, TreeHelper::createTreeFromArray([1, 2, 3, 4, 5, 6, 7]));
     }
+
+    public function testHelper3()
+    {
+        $this->assertNull(TreeHelper::createTreeFromArray([]));
+    }
+
+    public function testHelper4()
+    {
+        $node = new TreeNode(3);
+        $node->left = new TreeNode(9);
+        $node->right = new TreeNode(20, new TreeNode(15), new TreeNode(7));
+
+        $this->assertEquals($node, TreeHelper::createTreeFromArray([3,9,20,null,null,15,7]));
+    }
 }

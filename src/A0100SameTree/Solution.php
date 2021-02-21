@@ -12,8 +12,8 @@ class Solution {
      */
     public function isSameTree($p, $q)
     {
-        if ($p == null || $q == null) {
-            return false;
+        if ($p == null && $q == null) {
+            return true;
         }
 
         if ($p->val !== $q->val) {
