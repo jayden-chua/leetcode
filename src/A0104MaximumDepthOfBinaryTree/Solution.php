@@ -1,7 +1,6 @@
 <?php declare(strict_types=1);
 
 namespace App\A0104MaximumDepthOfBinaryTree;
-use Lib\Helper\TreeHelper;
 use Lib\Helper\TreeNode;
 
 class Solution {
@@ -19,6 +18,11 @@ class Solution {
         return $this->backtrack($root, $total);
     }
 
+    /**
+     * @param TreeNode $node
+     * @param int $total
+     * @return int|mixed
+     */
     private function backtrack($node, $total)
     {
         $total++;
@@ -42,6 +46,10 @@ class Solution {
         return $rightTotal > $leftTotal ? $rightTotal : $leftTotal;
     }
 
+    /**
+     * @param TreeNode $root
+     * @return int
+     */
     public function maxDepthIterative($root) {
         if (!($root instanceof TreeNode)) {
             return 0;

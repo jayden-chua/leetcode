@@ -17,8 +17,10 @@ final class SolutionTest extends TestCase
 
     /**
      * @dataProvider cases
-     */ 
-    public function testMaxDepthRecursive($inputNodes, $expectedOutput) {
+     * @param array $inputNodes
+     * @param int $expectedOutput
+     */
+    public function testMaxDepthRecursive(array $inputNodes, int $expectedOutput) {
         $s = new Solution();
         $treeNodes = TreeHelper::createTreeFromArray($inputNodes);
         $this->assertEquals($expectedOutput, $s->maxDepthRecursive($treeNodes));
@@ -26,8 +28,10 @@ final class SolutionTest extends TestCase
 
     /**
      * @dataProvider cases
+     * @param array $inputNodes
+     * @param int $expectedOutput
      */
-    public function testMaxDepthIterative($inputNodes, $expectedOutput) {
+    public function testMaxDepthIterative(array $inputNodes, int $expectedOutput) {
         $s = new Solution();
         $treeNodes = TreeHelper::createTreeFromArray($inputNodes);
         $this->assertEquals($expectedOutput, $s->maxDepthIterative($treeNodes));
