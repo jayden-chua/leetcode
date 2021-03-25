@@ -3,7 +3,7 @@
 	"description": "PHP Notes for Leetcode Problem Sets",
 	"keywords": ["PHP", "Leetcode", "Data Structures", "Algorithms"],
 	"require": {
-		"php": "^8.0"
+		"php": "^7.3"
 	},
 	"require-dev": {
 		"phpunit/phpunit": "^9.0"
@@ -21,7 +21,7 @@
     },
     "config": {
         "platform": {
-            "php": "8.0"
+            "php": "7.3"
         },
         "sort-packages": true
     }
