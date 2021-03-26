@@ -67,6 +67,10 @@ class Solution {
         $pivot = (int) (($left + $right) / 2);
 
         while ($left <= $right) {
+            if (!isset($this->nums[$pivot+1])) {
+                return 0;
+            }
+
             if ($this->nums[$pivot] > $this->nums[$pivot+1]) {
                 return $pivot + 1;
             } else {
