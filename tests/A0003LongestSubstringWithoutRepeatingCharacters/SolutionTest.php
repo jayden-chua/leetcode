@@ -7,15 +7,40 @@ final class SolutionTest extends TestCase
 {
     public function cases() {
         return [
-            [[12,345,2,6,7986], 2],
+            ['abcabcbb', 3],
+            ['bbbbb', 1],
+            ['pwwkew', 3],
+            ['', 0],
         ];
     }
 
     /**
      * @dataProvider cases
-     */ 
-    public function testSample() {
+     * @param string $input
+     * @param string $expected
+     */
+    public function testLengthOfLongestSubstringBruteForce($input, $expected) {
         $s = new Solution();
-        $this->assertEquals('', '');
+        $this->assertEquals($expected, $s->lengthOfLongestSubstringBruteForce($input));
+    }
+
+    /**
+     * @dataProvider cases
+     * @param string $input
+     * @param string $expected
+     */
+    public function testLengthOfLongestSubstringSlidingWindow($input, $expected) {
+        $s = new Solution();
+        $this->assertEquals($expected, $s->lengthOfLongestSubstringSlidingWindow($input));
+    }
+
+    /**
+     * @dataProvider cases
+     * @param string $input
+     * @param string $expected
+     */
+    public function testLengthOfLongestSubstringSlidingWindowOptimized($input, $expected) {
+        $s = new Solution();
+        $this->assertEquals($expected, $s->lengthOfLongestSubstringSlidingWindowOptimized($input));
     }
 }
